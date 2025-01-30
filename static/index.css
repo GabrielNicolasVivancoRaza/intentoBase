@@ -1,0 +1,112 @@
+/* General Styles */
+body {
+    font-family: 'Amazon Ember', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #131921;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: #131921;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    font-size: 32px;
+}
+
+/* Form Section */
+#login-form {
+    background-color: white;
+    width: 350px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 14px;
+    color: #131921;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button[type="submit"] {
+    background-color: #f0c14b;
+    border: 1px solid #a88734;
+    color: #111;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+}
+
+button[type="submit"]:hover {
+    background-color: #e2a900;
+}
+
+/* Response message */
+#response-message {
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Register Section */
+h3 {
+    text-align: center;
+    margin-top: 20px;
+    color: #131921;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0066c0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #f0c14b;
+    border: 1px solid #a88734;
+    color: #111;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e2a900;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #131921;
+    color: white;
+    font-size: 12px;
+}

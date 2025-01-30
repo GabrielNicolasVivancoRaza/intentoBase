@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon - Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ebcda8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #3f546e;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header img {
+            width: 120px;
+            vertical-align: middle;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #232f3e;
+        }
+
+        .product-list, .cart {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .product, .cart-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 23%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product:hover, .cart-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product h3, .cart-item h4 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product p, .cart-item p {
+            color: #555;
+        }
+
+        .product button, .cart-item button {
+            background-color: #ffa41c;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .product button:hover, .cart-item button:hover {
+            background-color: #e69100;
+        }
+
+        .checkout {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .checkout h3 {
+            margin: 0;
+            color: #232f3e;
+        }
+
+        .checkout p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .checkout button {
+            background-color: #0073bb;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .checkout button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+        <h1>Welcome Back!</h1>
+    </div>
+
+    <div class="container">
+        <h2>Products</h2>
+        <div class="product-list">
+            <!-- Products dynamically added -->
+            <script>
+                const products = [
+                    { name: "Laptop", price: 800, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP_Jw4QCwqkn0aCrK5VGtXOGN9uIk-zi303Q&s" },
+                    { name: "Headphones", price: 150, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt2y8tzyGf3UEUeUttjasYuNnPkMqhIm43EA&s" },
+                    { name: "Smartphone", price: 700, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKOEp4KcspLXcZZ5IqoL6OtZ2OQ5tPjIJWLg&s" },
+                    { name: "Tablet", price: 400, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZYqk-hwE8ZIAY1mMIQWUIxDBgK8-RkxYz2g&s" },
+                    { name: "Smartwatch", price: 250, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoUxb3chWUxL8NdybPMJ1_1FLqfT93nu3_tg&s" },
+                    { name: "Camera", price: 500, img: "https://quecamarareflex.com/wp-content/uploads/2023/07/canon_R50-viewFO-objetivo.jpg" },
+                    { name: "Keyboard", price: 50, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEMxMO4WXhpVDBzU_bpTgF_8mb1md8uk03dg&s" },
+                    { name: "Mouse", price: 30, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ581Jj9tRYnFjZMbc_GwZ3CChPIvxNxaovUg&s" },
+                ];
+
+                document.write(products.map(product => `
+                    <div class="product">
+                        <img src="${product.img}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>Price: $${product.price.toFixed(2)}</p>
+                        <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                `).join(''));
+            </script>
+        </div>
+
+        <h2>Your Cart</h2>
+        <div class="cart"></div>
+
+        <div class="checkout">
+            <h3>Order Summary</h3>
+            <p>Total: $<span id="total-price">0.00</span></p>
+            <p>
+                <label for="address">Shipping Address:</label>
+                <input type="text" id="address" placeholder="Enter your shipping address" required>
+            </p>
+            <p>
+                <label for="card-type">Card Type:</label>
+                <select id="card-type">
+                    <option value="credit">Credit</option>
+                    <option value="debit">Debit</option>
+                </select>
+            </p>
+            <button onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        const cart = [];
+
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartContainer = document.querySelector('.cart');
+            cartContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <h4>${item.product}</h4>
+                        <p>Price: $${item.price.toFixed(2)}</p>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+            });
+
+            document.getElementById('total-price').textContent = total.toFixed(2);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const address = document.getElementById('address').value;
+            const cardType = document.getElementById('card-type').value;
+            const cedula = prompt('Enter your Cédula:'); // Pide la cédula
+
+            if (!cedula || !address) {
+                alert('Please provide a valid cédula and shipping address!');
+                return;
+            }
+
+            const total = parseFloat(document.getElementById('total-price').textContent);
+            const cardNumber = prompt(`Enter your ${cardType} card number:`);
+            if (cardNumber) {
+                // Enviar la orden al backend
+                fetch('/comprar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        cedula: cedula,  // Enviar la cédula para identificar al usuario
+                        products: cart.map(item => item.product),
+                        total: total,
+                        card_type: cardType,
+                        address: address,
+                        card_number: cardNumber
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === "Compra realizada con éxito") {
+                        alert(`Payment of $${total.toFixed(2)} using ${cardType.toUpperCase()} card was successful!\nShipping to: ${address}`);
+                        cart.length = 0; // Vaciar el carrito
+                        renderCart();
+                    } else {
+                        alert('Error in processing the payment.');
+                    }
+                })
+                .catch(error => {
+                    alert('Error in sending data to server.');
+                });
+            }
+        }
+    </script>
+</body>
+
+
+</html>
