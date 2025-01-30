@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="contenedor-login">
+        <h1>Bienvenido a MatchFinder</h1>
+        <p>Inicia sesión o regístrate para comenzar a conectar.</p>
+     
+        <div class="formulario">
+            <h2>Iniciar Sesión</h2>
+            <form action="principal.html" method="get">
+                <div class="center">
+                    <img src="Logo.webp" alt="Usuario" class="perfil-redondo" width="150" height="150">
+                </div>
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Usuario" minlength="3" required>
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" minlength="4" required>
+                <input class="iniciarSesion" type="submit" value="Ingresar">
+                <!-- <a href="principal.html" class="boton">Ingresar</a> -->
+            </form>
+        </div>
+
+        
+        <div class="formulario">
+            <h2>¿Nuevo aquí?</h2>
+            <p>No tienes una cuenta. ¡Regístrate ahora!</p>
+            <a href="registro.html" class="boton">Registrarse</a>
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evitar recarga de página
+        
+        let usuario = document.getElementById("usuario").value;
+        let contraseña = document.getElementById("contraseña").value;
+        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+        let usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.contraseña === contraseña);
+
+        if (usuarioEncontrado) {
+            alert("Inicio de sesión exitoso. Bienvenido, " + usuarioEncontrado.nombre);
+            localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
+            window.location.href = "principal.html"; // Redirigir a la página principal
+        } else {
+            alert("Usuario o contraseña incorrectos.");
+        }
+    });
+</script>
+
+</html>

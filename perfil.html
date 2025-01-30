@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fondo</title>
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        .edit-button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .edit-button:hover {
+            background-color: #0056b3;
+        }
+
+        [contenteditable="true"] {
+            border: 1px dashed #ccc;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MatchFinder</h1>
+        <nav>
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="chats.html">Chats</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="coincidencias.html">Coincidencias</a></li>
+                <li><a href="login.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Botón para habilitar/deshabilitar la edición -->
+    <button class="edit-button" onclick="toggleEditMode()">Habilitar Edición</button>
+
+    <section class="section1">
+        <div class="logo-redondo"></div>
+    </section>
+
+    <section class="section3">
+        <div class="perfil">
+            <div class="info-perfil">
+                <h2 contenteditable="false">Marco Sánchez</h2>
+                <p contenteditable="false">Edad: 28 años</p>
+                <p contenteditable="false">Ubicación: Buenos Aires, Argentina</p>
+                <p contenteditable="false">Intereses: Programación, deportes al aire libre, tecnología, cine, y música indie.</p>
+                <p contenteditable="false">Sobre mí: Soy un entusiasta de la tecnología y la programación, siempre buscando aprender nuevas herramientas y optimizar procesos. Me apasionan los deportes al aire libre, especialmente el trekking y el ciclismo. En mi tiempo libre disfruto de una buena película o de escuchar música indie mientras disfruto de un café en algún lugar tranquilo. Me gusta mantenerme activo y constantemente enfrentar nuevos desafíos en mi carrera profesional y en mi vida personal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section4">
+        <div class="perfil">
+            <div class="info-perfil">
+                <h2>5 cosas sobre mí:</h2>
+                <ol>
+                    <li contenteditable="false"><strong>Apasionado de la música:</strong> Artistas favoritos son Guardarraya, Lc-San, La máquina camaleón.</li>
+                    <li contenteditable="false"><strong>Me encanta cocinar:</strong> Siempre estoy probando nuevas recetas y no hay nada mejor que una cena casera con amigos.</li>
+                    <li contenteditable="false"><strong>Persona activa:</strong> Ya sea en el gimnasio, corriendo o jugando deportes, me gusta mantenerme en movimiento.</li>
+                    <li contenteditable="false"><strong>Persona optimista:</strong> La vida es demasiado corta para no ser feliz y trato de encontrar lo positivo en todo.</li>
+                    <li contenteditable="false"><strong>Adoro los animales:</strong> Tengo una mascota llamada [nombre de la mascota], y me encanta pasar tiempo con ella.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MatchFinder. Todos los derechos reservados.</p>
+        <p>Copyright - David Moran - Gabriel Vivanco - 2025</p>
+        <h2>Contactos</h2>
+        <div class="social-icons">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="https://img.freepik.com/vector-gratis/icono-redes-sociales-vector-instagram-7-junio-2021-bangkok-tailandia_53876-136728.jpg?w=360" 
+                alt="Instagram">
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/123456789" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Función para habilitar o deshabilitar la edición
+        function toggleEditMode() {
+            const editableElements = document.querySelectorAll('[contenteditable]');
+            const button = document.querySelector('.edit-button');
+            const isEditable = editableElements[0].getAttribute('contenteditable') === 'true';
+
+            editableElements.forEach(element => {
+                element.setAttribute('contenteditable', !isEditable);
+            });
+
+            // Cambiar texto del botón según el estado
+            button.textContent = isEditable ? 'Habilitar Edición' : 'Deshabilitar Edición';
+        }
+    </script>
+</body>
+</html>

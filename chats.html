@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Chats</title>
+    <link rel="stylesheet" href="chats.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const chatInputs = document.querySelectorAll(".chat-input");
+            const autoReplies = [
+                "¿Cómo estás?",
+                "Ahora no puedo hablar",
+                "Qué bueno saber de ti",
+                "Hablemos luego",
+                "Estoy ocupado en este momento",
+                "¿Qué tal tu día?",
+                "Jaja, eso suena interesante"
+            ];
+    
+            chatInputs.forEach(inputContainer => {
+                const inputField = inputContainer.querySelector("input");
+                const sendButton = inputContainer.querySelector("button");
+                const messagesContainer = inputContainer.closest(".chat-container").querySelector(".chat-messages");
+    
+                sendButton.addEventListener("click", function() {
+                    const messageText = inputField.value.trim();
+                    if (messageText) {
+                        addMessage(messagesContainer, messageText, "sent");
+                        inputField.value = "";
+                        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    
+                        // Generar una respuesta automática después de 1 segundo
+                        setTimeout(() => {
+                            const replyText = autoReplies[Math.floor(Math.random() * autoReplies.length)];
+                            addMessage(messagesContainer, replyText, "received");
+                            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                        }, 1000);
+                    }
+                });
+    
+                function addMessage(container, text, type) {
+                    const newMessage = document.createElement("div");
+                    newMessage.classList.add("message", type);
+                    newMessage.innerHTML = `
+                        <p>${text}</p>
+                        <span class="time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</span>
+                    `;
+                    container.appendChild(newMessage);
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>MatchFinder</h1>
+        <nav>
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="chats.html">Chats</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="coincidencias.html">Coincidencias</a></li>
+                <li><a href="login.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Aside para la lista de chats -->
+        <aside class="chat-list">
+            <h2>Personas con quienes hiciste match!</h2>
+            <nav>
+                <a href="#chat1">María</a>
+                <a href="#chat2">Karla</a>
+                <a href="#chat3">Lucía</a>
+                <a href="#chat4">Fernanda</a>
+            </nav>
+        </aside>
+
+        <!-- Logo circular al lado del aside -->
+        <div class="logo-container">
+            <img src="Logo.webp" alt="Logo" class="logo">
+        </div>
+
+        <br>
+
+        <!-- Secciones de chats individuales -->
+        <section class="chat-container" id="chat1">
+            <div class="chat-header">
+                <img src="https://i.pinimg.com/236x/19/82/26/19822687370ab062517f3e8602cf4676.jpg" alt="Avatar" class="chat-avatar">
+                <h2>María </h2> 
+                <p> Última vez hoy a las 15:45</p>
+            </div>
+            <div class="chat-messages">
+                <div class="message received">
+                    <p>¡Hola! ¿Cómo estás?</p>
+                    <span class="time">15:42</span>
+                </div>
+                <div class="message sent">
+                    <p>¡Hola! Todo bien, gracias. ¿Y tú?</p>
+                    <span class="time">15:43</span>
+                </div>
+                <div class="message received">
+                    <p>Creo que bien. ¿Quieres salir hoy?</p>
+
+                    <span class="time">15:42</span>
+                </div>
+                <div class="message sent">
+                    <p>Puedo, pero solo en la noche</p>
+                    <span class="time">15:43</span>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Escribe un mensaje...">
+                <button>Enviar</button>
+            </div>
+        </section>
+
+        <section class="chat-container" id="chat2">
+            <div class="chat-header">
+                <img src="https://i.pinimg.com/236x/ab/55/01/ab5501488b5ac364d4e9fe16ef20e51b.jpg" alt="Avatar" class="chat-avatar">
+                <h2>Karla</h2>
+                <p>Última vez ayer a las 21:30</p>
+            </div>
+            <div class="chat-messages">
+                <div class="message received">
+                    <p>¿Viste el partido ayer?</p>
+                    <span class="time">20:12</span>
+                </div>
+                <div class="message sent">
+                    <p>¡Sí! Estuvo increíble.</p>
+                    <span class="time">20:15</span>
+                </div>
+                <div class="message received">
+                    <p>¿Qué te parece el partido?</p>
+                    <p>El resultado fue 4-1.</p>
+                    <p>¿Qué otros partidos te gustaría ver?</p>
+                    <span class="time">20:16</span>
+                </div>
+                    <div class="message sent">
+                        <p>Me gustaria ver el clasico español.</p>
+                        <span class="time">20:15</span>
+                    </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Escribe un mensaje...">
+                <button>Enviar</button>
+            </div>
+        </section>
+
+        <section class="chat-container" id="chat3">
+            <div class="chat-header">
+                <img src="https://i.pinimg.com/1200x/0b/5e/4c/0b5e4c8b9be94a1670ec320402b5af81.jpg" alt="Avatar" class="chat-avatar">
+                <h2>Lucía</h2>
+                <p>Última vez hoy a las 09:15</p>
+            </div>
+            <div class="chat-messages">
+                <div class="message received">
+                    <p>¿Qué tal el trabajo?</p>
+                    <span class="time">09:10</span>
+                </div>
+                <div class="message sent">
+                    <p>Un poco cansado, pero bien. ¿Tú?</p>
+                    <span class="time">09:12</span>
+                </div>
+                <div class="message received">
+                    <p>Bien, igual cansada por el trabajo</p>
+                    <span class="time">09:15</span>
+                </div>
+                <div class="message sent">
+                    <p>Ve a descansar</p>
+                    <span class="time">09:17</span>
+                </div>
+                <div class="message received">
+                    <p>Sí, hablamos mañana</p>
+                    <span class="time">09:26</span>
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" placeholder="Escribe un mensaje...">
+                <button>Enviar</button>
+            </div>
+        </section>
+
+        <section class="chat-container" id="chat4">
+            <div class="chat-header">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUlcSR_AK_GGUNhFobDclCp05qHm8RzK_P5g&s" alt="Avatar" class="chat-avatar">
+                <h2>Fernanda</h2>
+                <p>Última vez hoy a las 18:00</p>
+            </div>
+            <div class="chat-messages">
+                <div class="message received">
+                    <p>¿Ya viste la nueva película?</p>
+                    <span class="time">17:50</span>
+                </div>
+                <div class="message sent">
+                    <p>¡No, pero quiero ir este fin!</p>
+                    <span class="time">17:52</span>
+                </div>
+                <div class="message received">
+                    <p>Vamos juntos??</p>
+                    <span class="time">17:53</span>
+                </div>
+                <div class="message sent">
+                    <p>Sí, esperamos verla pronto!</p>
+                    <span class="time">17:55</span>
+    
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Escribe un mensaje...">
+                <button>Enviar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MatchFinder. Todos los derechos reservados.</p>
+        <p>Copyright - David Moran - Gabriel Vivanco - 2025</p>
+        <h2>Contactos</h2>
+        <div class="social-icons">
+          
+          <a href="https://www.instagram.com" target="_blank">
+            <img src="https://img.freepik.com/vector-gratis/icono-redes-sociales-vector-instagram-7-junio-2021-bangkok-tailandia_53876-136728.jpg?w=360" 
+              alt="Instagram">
+          </a>
+          
+          <a href="https://www.facebook.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+          </a>
+          
+          <a href="https://wa.me/123456789" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+          </a>
+        </div>
+      </footer>
+</body>
+</html>

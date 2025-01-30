@@ -1,0 +1,112 @@
+
+body, h1, h2, p, label, input, button, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    height: 100%;
+}
+
+.contenedor-login {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 15px; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+    max-width: 400px;
+    width: 90%;
+}
+
+h1, h2 {
+    color: #ff6f61; 
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #555; 
+}
+
+.formulario {
+    margin-bottom: 20px;
+}
+
+h1{
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.formulario h2, p{
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.perfil-redondo {
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 4px solid #ff6f61;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #333; 
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ff6f61; 
+    border-radius: 10px; 
+    outline: none;
+    font-size: 1rem;
+    background: #fff;
+    color: #555;
+    transition: border 0.3s;
+}
+
+input:focus {
+    border: 2px solid #ff9a9e;
+}
+
+.iniciarSesion {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(to right, #ff6f61, #ff9a9e);
+    color: #fff;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.boton:hover {
+    background: linear-gradient(to right, #fad0c4, #ff9a9e); 
+    transform: scale(1.05); 
+    color: #333; 
+}
+
+footer {
+    margin-top: 20px;
+    color: #777;
+    font-size: 0.9rem;
+}

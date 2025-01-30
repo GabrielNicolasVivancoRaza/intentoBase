@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchFinder - Coincidencias</title>
+    <link rel="stylesheet" href="coincidencias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>MatchFinder</h1>
+    <nav>
+        <ul>
+            <li><a href="principal.html">Inicio</a></li>
+            <li><a href="perfil.html">Mi Perfil</a></li>
+            <li><a href="chats.html">Chats</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="coincidencias.html">Coincidencias</a></li>
+            <li><a href="login.html">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="contenedor">
+        <div class="tarjetas">
+            <!-- Tarjeta 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Melany</h2>
+                </div>
+                <div class="card-body">
+                    <div class="image-container">
+                        <img class="profile-image" src="https://media.istockphoto.com/id/1278608562/es/v%C3%ADdeo/retrato-de-cerca-de-la-hermosa-joven-adulta-a-la-luz-del-sol-al-atardecer-una-chica-bonita.jpg?s=640x640&k=20&c=3ONmrxZj7yFZkKJaiWkBuIsfscWQIXAaHLXZ71x0RVg=" alt="Melany">
+                    </div>
+                    <div class="text-container">
+                        <h3>Amante de la naturaleza</h3>
+                        <p>Tengo 23 años, estoy estudiando biotecnología en la UCE.</p>
+                        <br>
+                        <h3>Hobbies</h3>
+                        <ul>
+                            <li>Ver películas</li>
+                            <li>Ayudar a los animales</li>
+                            <li>Explorar bosques</li>
+                        </ul>
+                    </div>
+                    <div class="actions">
+                        <button class="btn" id="like-melany">
+                            <i class="fa-solid fa-heart like fa-2x"></i>
+                        </button>
+                        <button class="btn" id="reject-melany">
+                            <i class="fa-solid fa-xmark reject fa-2x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Alicia</h2>
+                </div>
+                <div class="card-body">
+                    <div class="image-container">
+                        <img class="profile-image" src="https://media.istockphoto.com/id/1290658063/es/foto/retrato-de-una-hermosa-mujer-con-maquillaje-natural.jpg?s=612x612&w=0&k=20&c=zEs8cNVkDs03c_llhwBzcjiKtJR7lpxH98-4F1gkhag=" alt="Alicia">
+                    </div>
+                    <div class="text-container">
+                        <h3>Aventurera y fotógrafa</h3>
+                        <p>Tengo 21 años, solo busco hacer amigos.</p>
+                        <br>
+                        <h3>Hobbies</h3>
+                        <ul>
+                            <li>Viajar a diferentes sitios</li>
+                            <li>Tomar fotos en la ciudad</li>
+                            <li>Ir a fiestas</li>
+                        </ul>
+                    </div>
+                    <div class="actions">
+                        <button class="btn" id="like-alicia">
+                            <i class="fa-solid fa-heart like fa-2x"></i>
+                        </button>
+                        <button class="btn" id="reject-alicia">
+                            <i class="fa-solid fa-xmark reject fa-2x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Carlos</h2>
+                </div>
+                <div class="card-body">
+                    <div class="image-container">
+                        <img class="profile-image" src="https://media.istockphoto.com/id/1350399329/es/foto/joven-feliz-tom%C3%A1ndose-selfie-con-su-perro-en-un-parque-chico-sonriente-y-cachorro.jpg?s=612x612&w=0&k=20&c=HqF0XIzucptQwdVN0UfraVeVM5n6d7uuuM1P-gsplrU=" alt="Carlos">
+                    </div>
+                    <div class="text-container">
+                        <h3>Entusiasta de los deportes</h3>
+                        <p>Tengo 22 años, me gusta ayudar a los demas y tengo un perro</p>
+                        <br>
+                            <h3>Hobbies</h3>
+                                <ul>
+                                    <li>Practicar deportes</li>
+                                    <li>Pasear con mi mascota</li>
+                                    <li>Ver deportes en vivo</li>
+                                </ul> 
+                    </div>
+                    <div class="actions">
+                        <button class="btn" id="like-carlos">
+                            <i class="fa-solid fa-heart like fa-2x"></i>
+                        </button>
+                        <button class="btn" id="reject-carlos">
+                            <i class="fa-solid fa-xmark reject fa-2x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 MatchFinder. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    // Función aceptar
+    function aceptar(nombre) {
+        alert(`¡Has dado me gusta a ${nombre}!`);
+    }
+
+    // Función rechazar
+    function rechazar(nombre) {
+        alert(`Has rechazado a ${nombre}.`);
+    }
+
+    // Asignar eventos a los botones
+    document.getElementById('like-melany').onclick = () => aceptar('Melany');
+    document.getElementById('reject-melany').onclick = () => rechazar('Melany');
+    document.getElementById('like-alicia').onclick = () => aceptar('Alicia');
+    document.getElementById('reject-alicia').onclick = () => rechazar('Alicia');
+    document.getElementById('like-carlos').onclick = () => aceptar('Carlos');
+    document.getElementById('reject-carlos').onclick = () => rechazar('Carlos');
+</script>
+
+</body>
+</html>
